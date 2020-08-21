@@ -1,0 +1,3 @@
+include ':arc'
+include ':app'
+rootProject.name = "ArcDemo"
