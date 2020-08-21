@@ -16,8 +16,6 @@ public class Student {
     private String path;
 
     public Student() {
-        new Gson().fromJson("", new TypeToken<List<Student>>() {
-        }.getType());
     }
 
     public Student(Long id, String name, String age, String sex) {

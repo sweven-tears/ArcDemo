@@ -8,6 +8,7 @@ import java.util.List;
 import pers.sweven.arc.entity.FaceData;
 import pers.sweven.arc.entity.FaceResult;
 import pers.sweven.arc.utils.FaceHelper;
+import pers.sweven.arcdemo.FaceManager;
 import pers.sweven.arcdemo.Student;
 
 /**

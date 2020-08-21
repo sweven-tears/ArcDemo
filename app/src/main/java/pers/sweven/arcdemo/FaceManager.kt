@@ -10,10 +10,11 @@ import com.sweven.util.PreferenceUtil
  */
 class FaceManager {
     companion object {
+        @JvmStatic
         val instance = FaceManager()
     }
 
-    var students: List<Student> = arrayListOf()
+    var students: ArrayList<Student> = arrayListOf()
         get() {
             if (field.isNotEmpty()) {
                 return field
@@ -22,10 +23,16 @@ class FaceManager {
             }
         }
 
-    private fun getStudents(context: Context): List<Student> {
+    private fun getStudents(context: Context): ArrayList<Student> {
         val shared = PreferenceUtil(context, "arc_demo")
         val json = shared.getString("students")
-        return Gson().fromJson<List<Student>>(json, object : TypeToken<List<Student?>?>() {}.type)
+        return Gson().fromJson<ArrayList<Student>>(json, object : TypeToken<ArrayList<Student?>?>() {}.type)
+    }
+
+    fun saveStudent(context: Context,student: Student){
+        val shared = PreferenceUtil(context, "arc_demo")
+        students.add(student)
+        shared.editor.putString("students",Gson().toJson(students)).apply()
     }
 
 }
